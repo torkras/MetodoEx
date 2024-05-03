@@ -13,6 +13,14 @@ public class Main {
             identificaVocalesReducido(abecedario[i]);
             identificaVocalesIf(abecedario[i]);
         }
+
+        sumaMultiplosDe5(4,8);
+        sumaMultiplosDe5(8,3);
+        sumaMultiplosDe5(-1,7);
+        sumaMultiplosDe5(0,100);
+        sumaMultiplosDe5(100,200);
+        sumaMultiplosDe5(200,300);
+        sumaMultiplosDe5(100,1000);
     }
 
     private static void identificaVocales(char vocal) {
@@ -75,6 +83,33 @@ public class Main {
         }
         else {
             System.out.println("Error: no se ha introducido ninguna vocal");
+        }
+    }
+
+    private static void sumaMultiplosDe5(int min, int max) {
+        int aux = 0;
+        int suma = 0;
+
+        if (min < 0 || max < 0) {
+            System.out.println("Error: valor negativo introducido");
+            return;
+        } else if (min > max) {
+            aux = max;
+            max = min;
+            min = aux;
+        }
+
+        for (aux = min; aux <= max; aux++) {
+            if (aux % 5 == 0) {
+                suma += aux;
+            }
+        }
+
+        if (suma == 0) {
+            System.out.println("No se ha encontrado ningún multiplo de 5 en el rango introducido.");
+        }
+        else {
+            System.out.println("La suma de los múltipos de 5 en el rango entre " + min + " y " + max + " es: " + suma);
         }
     }
 }
